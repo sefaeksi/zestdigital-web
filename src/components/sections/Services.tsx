@@ -5,8 +5,8 @@ import { SERVICES } from "@/lib/constants";
 
 export default function Services() {
   return (
-    <section className="px-12 py-32 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-      <div className="flex items-end justify-between mb-16">
+    <section className="px-5 md:px-12 py-20 md:py-32 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
         <div>
           <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "#C8F135" }}>Hizmetler</p>
           <h2
@@ -28,9 +28,8 @@ export default function Services() {
       </div>
 
       <div
-        className="grid"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
         style={{
-          gridTemplateColumns: "repeat(4, 1fr)",
           gap: "1px",
           background: "rgba(255,255,255,0.06)",
         }}

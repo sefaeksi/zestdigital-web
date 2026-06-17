@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 md:px-12"
       style={{
         height: "80px",
         borderBottom: "1px solid rgba(255,255,255,0.06)",

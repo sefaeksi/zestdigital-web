@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 px-12">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 px-5 md:px-12">
 
       {/* Arka plan büyük yazı */}
       <div
@@ -41,12 +41,12 @@ export default function Hero() {
       </h1>
 
       {/* Alt kısım */}
-      <div className="flex items-end justify-between mt-16 gap-8 relative z-10">
-        <p className="text-lg font-body font-light max-w-md leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between mt-12 md:mt-16 gap-8 relative z-10">
+        <p className="text-base md:text-lg font-body font-light max-w-md leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
           Web sitesi, marka kimliği, SEO, sosyal medya —<br />
           dijitalde ne lazımsa, biz hallederiz.
         </p>
-        <div className="flex items-center gap-4 flex-shrink-0">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 flex-shrink-0">
           <Link
             href="/iletisim"
             className="inline-block font-body text-sm font-medium tracking-widest uppercase px-8 py-4 transition-all hover:-translate-y-0.5"
@@ -66,7 +66,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div
-        className="absolute bottom-8 right-12 flex flex-col items-center gap-2 text-xs tracking-widest uppercase"
+        className="absolute bottom-8 right-5 md:right-12 flex flex-col items-center gap-2 text-xs tracking-widest uppercase"
         style={{ opacity: 0.3 }}
       >
         <span>Scroll</span>
