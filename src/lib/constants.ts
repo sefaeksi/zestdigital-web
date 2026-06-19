@@ -5,7 +5,7 @@ export const SITE = {
   email: "zestdigitaltr@gmail.com",
   url: "https://zestdigital.com.tr",
   social: {
-    instagram: "https://instagram.com/zestdigital",
+    instagram: "https://instagram.com/zestdigitaltr",
   },
 };
 
