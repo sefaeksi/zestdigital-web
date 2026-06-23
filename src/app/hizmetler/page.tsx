@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CTABand from "@/components/sections/CTABand";
 
 const HIZMETLER = [
   {
@@ -204,18 +205,7 @@ export default function HizmetlerPage() {
         ))}
       </div>
 
-      {/* CTA */}
-      <div style={{ textAlign: "center", padding: "6rem 2rem" }}>
-        <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.4)", marginBottom: "2rem" }}>
-          Hangi hizmetten başlayacağını bilmiyor musun?
-        </p>
-        <Link
-          href="/iletisim"
-          style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", padding: "1rem 2.5rem", background: "#C8F135", color: "#0A0A0A", textDecoration: "none", display: "inline-block" }}
-        >
-          Ücretsiz Görüşme Al →
-        </Link>
-      </div>
+      <CTABand />
     </div>
   );
 }
