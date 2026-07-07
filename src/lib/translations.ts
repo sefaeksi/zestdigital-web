@@ -5,6 +5,7 @@ export const translations = {
     nav: {
       links: [
         { label: "Hizmetler", href: "/hizmetler" },
+        { label: "Paketler", href: "/paketler" },
         { label: "Hakkımızda", href: "/hakkimizda" },
         { label: "Portfolyo", href: "/portfolyo" },
         { label: "İletişim", href: "/iletisim" },
@@ -160,6 +161,7 @@ export const translations = {
     nav: {
       links: [
         { label: "Services", href: "/hizmetler" },
+        { label: "Packages", href: "/paketler" },
         { label: "About", href: "/hakkimizda" },
         { label: "Portfolio", href: "/portfolyo" },
         { label: "Contact", href: "/iletisim" },
