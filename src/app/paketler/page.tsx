@@ -148,12 +148,6 @@ export default function PaketlerPage() {
                 <p style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: muted, marginBottom: "1.5rem" }}>
                   {pkg.name}
                 </p>
-                <p style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 3vw, 2.4rem)", letterSpacing: "-0.03em", lineHeight: 1, color: fg, marginBottom: "0.4rem" }}>
-                  {pkg.basePrice.toLocaleString("tr-TR")} TL
-                </p>
-                <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.78rem", color: muted, marginBottom: "0.75rem" }}>
-                  + {pkg.monthlyMaintenance.toLocaleString("tr-TR")} TL/ay bakım
-                </p>
                 <p style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: "1rem", color: fg, marginBottom: "2rem", lineHeight: 1.2 }}>
                   {pkg.tagline}
                 </p>
@@ -282,31 +276,6 @@ export default function PaketlerPage() {
                   </>
                 ))}
 
-                {/* Fiyat satırı */}
-                <tr>
-                  <td style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", fontWeight: 600, padding: "2rem 0 0.75rem" }}>
-                    Başlangıç Fiyatı
-                  </td>
-                  {PAKETLER.map((pkg) => (
-                    <td
-                      key={pkg.id}
-                      style={{
-                        textAlign: "center",
-                        padding: "2rem 1rem 0.75rem",
-                        borderLeft: pkg.highlight ? "1px solid rgba(200,241,53,0.15)" : "1px solid rgba(255,255,255,0.04)",
-                        borderRight: pkg.highlight ? "1px solid rgba(200,241,53,0.15)" : "none",
-                        background: pkg.highlight ? "rgba(200,241,53,0.03)" : "transparent",
-                        fontFamily: "var(--font-syne), sans-serif",
-                        fontWeight: 800,
-                        fontSize: "1rem",
-                        color: pkg.highlight ? "#C8F135" : "white",
-                        letterSpacing: "-0.02em",
-                      }}
-                    >
-                      {pkg.basePrice.toLocaleString("tr-TR")} TL
-                    </td>
-                  ))}
-                </tr>
               </tbody>
             </table>
           </div>
