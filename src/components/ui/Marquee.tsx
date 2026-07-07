@@ -1,15 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-
-const ITEMS = [
-  "Web Sitesi", "Marka Kimliği", "SEO", "Sosyal Medya",
-  "Mobil Uygulama", "Fotoğraf & Video", "Dijital Dönüşüm",
-  "Web Sitesi", "Marka Kimliği", "SEO", "Sosyal Medya",
-  "Mobil Uygulama", "Fotoğraf & Video", "Dijital Dönüşüm",
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Marquee() {
+  const { t } = useLanguage();
+  const items = [...t.marquee, ...t.marquee];
   const trackRef = useRef<HTMLDivElement>(null);
   const posRef = useRef(0);
 
@@ -32,7 +28,7 @@ export default function Marquee() {
   return (
     <div className="border-t border-b overflow-hidden py-4" style={{ borderColor: "rgba(255,255,255,0.08)", background: "#1A1A1A" }}>
       <div ref={trackRef} className="flex whitespace-nowrap w-max">
-        {ITEMS.map((item, i) => (
+        {items.map((item, i) => (
           <span key={i} className="inline-flex items-center gap-12 px-12 text-xs font-display font-semibold tracking-widest uppercase" style={{ color: "#888" }}>
             {item}
             <span className="text-lime">✦</span>

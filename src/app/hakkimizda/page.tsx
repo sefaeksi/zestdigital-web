@@ -1,51 +1,51 @@
-import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
+"use client";
+
+import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HakkimizdaPage() {
-  return (
-    <div className="pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <Badge variant="outline" className="mb-6">Hakkımızda</Badge>
+  const { t } = useLanguage();
+  const h = t.hakkimizda;
 
-        <h1 className="font-display font-bold text-5xl sm:text-6xl text-white max-w-2xl">
-          Esnafın yanında,<br />
-          <span className="text-lime">her adımda.</span>
+  return (
+    <div style={{ background: "#0A0A0A", minHeight: "100vh", paddingTop: "80px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "5rem 2rem 8rem" }}>
+
+        <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C8F135", display: "inline-block", border: "1px solid #C8F135", padding: "0.3rem 0.8rem", marginBottom: "2rem" }}>
+          {h.badge}
+        </span>
+
+        <h1 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 6vw, 5rem)", lineHeight: 1, letterSpacing: "-0.03em", color: "white", marginBottom: "4rem" }}>
+          {h.title}<br />
+          <span style={{ color: "#C8F135" }}>{h.titleLime}</span>
         </h1>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", maxWidth: "900px", marginBottom: "5rem" }}>
           <div>
-            <h2 className="font-display font-bold text-2xl text-lime mb-4">Biz Kimiz?</h2>
-            <p className="font-body text-gray-light leading-relaxed">
-              Zest Digital, esnaf ve KOBİ'lerin dijital dünyada hak ettikleri yeri almaları için
-              kuruldu. Web sitesi, marka kimliği, SEO ve sosyal medya alanında tam kapsamlı
-              dijital dönüşüm hizmetleri sunuyoruz.
-            </p>
+            <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#C8F135", marginBottom: "1rem" }}>{h.who}</h2>
+            <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.75 }}>{h.whoDesc}</p>
           </div>
           <div>
-            <h2 className="font-display font-bold text-2xl text-lime mb-4">Neden Zest Digital?</h2>
-            <p className="font-body text-gray-light leading-relaxed">
-              Teknik jargon yok, gereksiz karmaşıklık yok. Siz işinize odaklanın,
-              dijitali biz halledelim. Sadelik, güven ve büyüme — üç değerimiz, bir taahhüdümüz.
-            </p>
+            <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#C8F135", marginBottom: "1rem" }}>{h.why}</h2>
+            <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.75 }}>{h.whyDesc}</p>
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-gray-mid pt-12 max-w-2xl">
-          {[
-            { value: "Sadelik", desc: "Karmaşıklık yok, net iletişim" },
-            { value: "Güven", desc: "Şeffaf fiyat, zamanında teslimat" },
-            { value: "Büyüme", desc: "Her müşteri dijitalde ileri gider" },
-          ].map((item) => (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "2rem", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "3rem", maxWidth: "600px", marginBottom: "3rem" }}>
+          {h.values.map((item) => (
             <div key={item.value}>
-              <p className="font-display font-bold text-xl text-lime">{item.value}</p>
-              <p className="font-body text-sm text-gray-light mt-1">{item.desc}</p>
+              <p style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.1rem", color: "#C8F135", marginBottom: "0.4rem" }}>{item.value}</p>
+              <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.4)" }}>{item.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12">
-          <Button href="/iletisim" size="lg">Tanışalım</Button>
-        </div>
+        <Link
+          href="/iletisim"
+          style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", padding: "1rem 2.5rem", background: "#C8F135", color: "#0A0A0A", textDecoration: "none", display: "inline-block" }}
+        >
+          {h.cta} →
+        </Link>
       </div>
     </div>
   );

@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
-import { NAV_LINKS, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-gray-dark border-t border-gray-mid mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -12,26 +17,17 @@ export default function Footer() {
             <span className="font-display font-bold text-xl text-white">
               ZEST <span className="text-lime">digital</span>
             </span>
-            <p className="mt-3 text-gray-light text-sm font-body">
-              {SITE.slogan}
-            </p>
-            <p className="mt-1 text-gray-light text-sm font-body">
-              {SITE.description}
-            </p>
+            <p className="mt-3 text-gray-light text-sm font-body">{SITE.slogan}</p>
           </div>
 
           {/* Links */}
           <div>
             <h4 className="font-display font-bold text-white mb-4 text-sm uppercase tracking-widest">
-              Sayfalar
+              {t.footer.pages}
             </h4>
             <nav className="flex flex-col gap-2">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-gray-light hover:text-lime text-sm font-body transition-colors"
-                >
+              {t.nav.links.map((link) => (
+                <Link key={link.href} href={link.href} className="text-gray-light hover:text-lime text-sm font-body transition-colors">
                   {link.label}
                 </Link>
               ))}
@@ -41,20 +37,12 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-display font-bold text-white mb-4 text-sm uppercase tracking-widest">
-              İletişim
+              {t.footer.contact}
             </h4>
-            <a
-              href={`mailto:${SITE.email}`}
-              className="text-gray-light hover:text-lime text-sm font-body transition-colors block"
-            >
+            <a href={`mailto:${SITE.email}`} className="text-gray-light hover:text-lime text-sm font-body transition-colors block">
               {SITE.email}
             </a>
-            <a
-              href={SITE.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-light hover:text-lime text-sm font-body transition-colors block mt-2"
-            >
+            <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-light hover:text-lime text-sm font-body transition-colors block mt-2">
               Instagram
             </a>
           </div>
@@ -62,11 +50,9 @@ export default function Footer() {
 
         <div className="border-t border-gray-mid mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-light text-xs font-body">
-            © {new Date().getFullYear()} Zest Digital. Tüm hakları saklıdır.
+            © {new Date().getFullYear()} Zest Digital. {t.footer.rights}
           </p>
-          <p className="text-gray-light text-xs font-body">
-            İstanbul, Türkiye
-          </p>
+          <p className="text-gray-light text-xs font-body">{t.footer.city}</p>
         </div>
       </div>
     </footer>

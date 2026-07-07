@@ -1,26 +1,34 @@
-import Badge from "@/components/ui/Badge";
+"use client";
+
 import ContactForm from "@/components/sections/ContactForm";
 import { SITE } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function IletisimPage() {
-  return (
-    <div className="pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <Badge variant="outline" className="mb-6">İletişim</Badge>
+  const { t } = useLanguage();
+  const c = t.iletisim;
 
-        <h1 className="font-display font-bold text-5xl sm:text-6xl text-white max-w-2xl mb-4">
-          Konuşalım,<br />
-          <span className="text-lime">başlayalım.</span>
+  return (
+    <div style={{ background: "#0A0A0A", minHeight: "100vh", paddingTop: "80px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "5rem 2rem 3rem" }}>
+
+        <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C8F135", display: "inline-block", border: "1px solid #C8F135", padding: "0.3rem 0.8rem", marginBottom: "2rem" }}>
+          {c.badge}
+        </span>
+
+        <h1 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 6vw, 5rem)", lineHeight: 1, letterSpacing: "-0.03em", color: "white", marginBottom: "2rem" }}>
+          {c.title}<br />
+          <span style={{ color: "#C8F135" }}>{c.titleLime}</span>
         </h1>
 
-        <div className="flex flex-col sm:flex-row gap-6 mb-16 text-gray-light font-body">
-          <a href={`mailto:${SITE.email}`} className="hover:text-lime transition-colors">
+        <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap", marginBottom: "4rem" }}>
+          <a href={`mailto:${SITE.email}`} style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
             📧 {SITE.email}
           </a>
-          <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-lime transition-colors">
+          <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
             📸 Instagram
           </a>
-          <span>📍 İstanbul, Türkiye</span>
+          <span style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.45)" }}>📍 İstanbul, Türkiye</span>
         </div>
       </div>
 
