@@ -145,7 +145,7 @@ export default function PaketlerPage() {
             const muted = pkg.highlight ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.4)";
             return (
               <div key={pkg.id} style={{ background: bg, padding: "2.5rem 2rem", display: "flex", flexDirection: "column", gap: "0" }}>
-                <p style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: muted, marginBottom: "1.5rem" }}>
+                <p style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.6rem", letterSpacing: "-0.02em", color: fg, marginBottom: "1.5rem" }}>
                   {pkg.name}
                 </p>
                 <p style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: "1rem", color: fg, marginBottom: "2rem", lineHeight: 1.2 }}>
