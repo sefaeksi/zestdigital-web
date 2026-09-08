@@ -21,6 +21,7 @@ const PROJECTS = [
     },
     tags: ["Next.js", "Mikrosite", "SEO"],
     url: "https://www.yavuzgrup.tr",
+    logo: "/portfolyo/yavuz-grup.svg",
   },
   {
     id: "easy-run-club",
@@ -69,8 +70,20 @@ export default function PortfolyoIcerik() {
         <div className="portfolyo-grid">
           {PROJECTS.map((project) => (
             <div key={project.id} style={{ background: "#111", padding: "2rem", display: "flex", flexDirection: "column" }}>
-              <div style={{ height: "12rem", background: "#1A1A1A", marginBottom: "1.5rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.75rem", color: "rgba(255,255,255,0.2)" }}>{po.comingSoon}</span>
+              {/* Logo dosyasi olan projede logo, olmayanda proje adi kelime
+                  markasi olarak gosteriliyor; ikisi de ayni kutuyu dolduruyor. */}
+              <div style={{ height: "12rem", background: "#1A1A1A", marginBottom: "1.5rem", display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
+                {project.logo ? (
+                  <img
+                    src={project.logo}
+                    alt={`${project.title} logosu`}
+                    style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", opacity: 0.9 }}
+                  />
+                ) : (
+                  <span style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.35rem", letterSpacing: "0.06em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)", textAlign: "center", lineHeight: 1.25 }}>
+                    {project.title}
+                  </span>
+                )}
               </div>
               <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#C8F135", marginBottom: "0.75rem" }}>{project.category[lang]}</span>
               <h3 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.2rem", color: "white", marginBottom: "0.75rem" }}>{project.title}</h3>
