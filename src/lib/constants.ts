@@ -3,7 +3,9 @@ export const SITE = {
   slogan: "İşine Zest kat.",
   description: "Esnaf ve KOBİ'ler için dijital dönüşüm hizmetleri. İşine Zest kat.",
   email: "zestdigitaltr@gmail.com",
-  url: "https://zestdigital.com.tr",
+  // Vercel apex'i www'ye yonlendiriyor; canonical ve sitemap servis edilen
+  // adresle ayni olmali, yoksa Google yonlendirme zinciri gorur.
+  url: "https://www.zestdigital.com.tr",
   social: {
     instagram: "https://instagram.com/zestdigitaltr",
   },
