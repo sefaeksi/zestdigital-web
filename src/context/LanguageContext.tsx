@@ -23,6 +23,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (saved === "en" || saved === "tr") setLangState(saved);
   }, []);
 
+  // <html lang> istemcide de guncellenmeli: tarayici text-transform:uppercase'i
+  // dilin kurallarina gore uyguluyor. lang="tr" kalirsa Ingilizce metinlerdeki
+  // "i" harfi noktali "İ"ye donuyor ve "SERVİCES", "PORTFOLİO" gibi cikiyor.
+  // Sunucu ciktisi "tr" olarak kaliyor; Google sayfayi Turkce goruyor.
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   function setLang(l: Lang) {
     setLangState(l);
     localStorage.setItem("zd-lang", l);
