@@ -46,7 +46,7 @@ export default function PortfolyoIcerik() {
 
   return (
     <div style={{ background: "#0A0A0A", minHeight: "100vh", paddingTop: "80px" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "5rem 2rem 8rem" }}>
+      <div className="sayfa-kap" style={{ paddingTop: "5rem", paddingBottom: "8rem" }}>
 
         <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C8F135", display: "inline-block", border: "1px solid #C8F135", padding: "0.3rem 0.8rem", marginBottom: "2rem" }}>
           {po.badge}
@@ -57,7 +57,7 @@ export default function PortfolyoIcerik() {
           <span style={{ color: "#C8F135" }}>{po.titleLime}</span>
         </h1>
 
-        <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1.1rem", color: "rgba(255,255,255,0.45)", marginBottom: "4rem", maxWidth: "480px", lineHeight: 1.7, textWrap: "pretty" }}>
+        <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1.25rem", color: "rgba(255,255,255,0.45)", marginBottom: "4rem", maxWidth: "640px", lineHeight: 1.7, textWrap: "pretty" }}>
           {po.desc}
         </p>
 
@@ -70,10 +70,10 @@ export default function PortfolyoIcerik() {
 
         <div className="portfolyo-grid">
           {PROJECTS.map((project) => (
-            <div key={project.id} style={{ background: "#111", padding: "2rem", display: "flex", flexDirection: "column" }}>
+            <div key={project.id} style={{ background: "#111", padding: "2.5rem", display: "flex", flexDirection: "column" }}>
               {/* Logo dosyasi olan projede logo, olmayanda proje adi kelime
                   markasi olarak gosteriliyor; ikisi de ayni kutuyu dolduruyor. */}
-              <div style={{ height: "12rem", background: "#1A1A1A", marginBottom: "1.5rem", display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
+              <div style={{ height: "14rem", background: "#1A1A1A", marginBottom: "1.75rem", display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
                 {project.logo ? (
                   <img
                     src={project.logo}
@@ -86,9 +86,9 @@ export default function PortfolyoIcerik() {
                   </span>
                 )}
               </div>
-              <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#C8F135", marginBottom: "0.75rem" }}>{project.category[lang]}</span>
-              <h3 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.2rem", color: "white", marginBottom: "0.75rem" }}>{project.title}</h3>
-              <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.875rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, flex: 1, textWrap: "pretty" }}>{project.description[lang]}</p>
+              <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#C8F135", marginBottom: "0.85rem" }}>{project.category[lang]}</span>
+              <h3 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.5rem", color: "white", marginBottom: "0.85rem" }}>{project.title}</h3>
+              <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.95rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.65, flex: 1, textWrap: "pretty" }}>{project.description[lang]}</p>
               <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "1rem", marginBottom: "1rem" }}>
                 {project.tags.map((tag) => (
                   <span key={tag} style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.7rem", color: "rgba(255,255,255,0.3)", border: "1px solid rgba(255,255,255,0.1)", padding: "0.2rem 0.6rem" }}>{tag}</span>

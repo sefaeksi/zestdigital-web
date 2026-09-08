@@ -41,3 +41,18 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-syne), sans-serif;
   font-weight: 800;
 }
+
+/* Alt sayfa kapsayicisi. Ana sayfa bolumleri (Hero, Services, CTABand) tam
+   genislikte px-5 md:px-12 kullaniyor; alt sayfalar 1200px'e kilitliydi ve
+   genis ekranda iki yanda kocaman bosluk kaliyordu. Ayni yatay ritim. */
+.sayfa-kap {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .sayfa-kap {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}

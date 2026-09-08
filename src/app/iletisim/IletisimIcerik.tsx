@@ -10,7 +10,7 @@ export default function IletisimIcerik() {
 
   return (
     <div style={{ background: "#0A0A0A", minHeight: "100vh", paddingTop: "80px" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "5rem 2rem 3rem" }}>
+      <div className="sayfa-kap" style={{ paddingTop: "5rem", paddingBottom: "3rem" }}>
 
         <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C8F135", display: "inline-block", border: "1px solid #C8F135", padding: "0.3rem 0.8rem", marginBottom: "2rem" }}>
           {c.badge}
@@ -21,8 +21,12 @@ export default function IletisimIcerik() {
           <span style={{ color: "#C8F135" }}>{c.titleLime}</span>
         </h1>
 
+        <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1.25rem", color: "rgba(255,255,255,0.45)", maxWidth: "640px", lineHeight: 1.7, marginBottom: "2.5rem", textWrap: "pretty" }}>
+          {c.desc}
+        </p>
+
         <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap", marginBottom: "4rem" }}>
-          <a href={`mailto:${SITE.email}`} style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+          <a href={`mailto:${SITE.email}`} style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1.05rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
             📧 {SITE.email}
           </a>
           <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
