@@ -20,7 +20,9 @@ export default function Navbar() {
     >
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 font-bold text-xl text-white" style={{ fontFamily: "var(--font-syne), sans-serif", letterSpacing: "-0.02em" }}>
-        <img src="/logo.png" alt="Zest Digital" style={{ width: 36, height: 36, objectFit: "contain", mixBlendMode: "screen" }} />
+        {/* Vektor ikon: eski logo.png 1792px/547KB idi ve 36px'e kuculuyordu.
+            alt bos: yanindaki "ZEST digital" metni zaten ayni adi veriyor. */}
+        <img src="/logo-ikon.svg" alt="" width={36} height={36} style={{ objectFit: "contain" }} />
         ZEST <span style={{ color: "#C8F135" }}>digital</span>
       </Link>
 

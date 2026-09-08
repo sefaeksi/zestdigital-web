@@ -12,12 +12,29 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300", "400", "500"], vari
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: "Zest Digital — İşine Zest Kat",
-  description: "Esnaf ve KOBİ'ler için web sitesi, marka kimliği, SEO ve sosyal medya hizmetleri.",
-  keywords: "web sitesi, dijital ajans, marka kimliği, SEO, İstanbul, KOBİ, esnaf",
-  // Alt sayfalar kendi metadata'sında alternates.canonical ile göreli yol
-  // vererek bunu ezebilir; metadataBase mutlak URL'e çevirir.
-  alternates: { canonical: "/" },
+  title: {
+    default: "Zest Digital — İşine Zest Kat",
+    template: "%s | Zest Digital",
+  },
+  description: SITE.description,
+  // canonical bilerek burada tanimli degil: layout'taki deger tum alt sayfalara
+  // miras kaldigi icin hepsi ana sayfayi isaret ediyordu. Her sayfa kendi
+  // canonical'ini veriyor; metadataBase gorel yolu mutlak URL'e cevirir.
+  openGraph: {
+    title: "Zest Digital — İşine Zest Kat",
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: SITE.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zest Digital — İşine Zest Kat",
+    description: SITE.description,
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
