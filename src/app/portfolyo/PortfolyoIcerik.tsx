@@ -36,6 +36,7 @@ const PROJECTS = [
     },
     tags: ["Next.js", "Supabase", "Tailwind"],
     url: "https://easyruntr.com",
+    logo: "/portfolyo/easy-run-club.svg",
   },
 ];
 
@@ -77,7 +78,7 @@ export default function PortfolyoIcerik() {
                   <img
                     src={project.logo}
                     alt={`${project.title} logosu`}
-                    style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", opacity: 0.9 }}
+                    style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
                   />
                 ) : (
                   <span style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.35rem", letterSpacing: "0.06em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)", textAlign: "center", lineHeight: 1.25 }}>
