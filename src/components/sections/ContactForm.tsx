@@ -3,9 +3,14 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import { SITE } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
+
+const SERVICE_KEYS = ["seed", "grow", "scale", "full", "other"] as const;
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const { t } = useLanguage();
+  const f = t.form;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,81 +39,80 @@ export default function ContactForm() {
     <section className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
         <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-4">
-          Ücretsiz görüşme<br />
-          <span className="text-lime">ayarlayalım.</span>
+          {f.title}<br />
+          <span className="text-lime">{f.titleLime}</span>
         </h2>
         <p className="font-body text-gray-light mb-10">
-          Formu doldurun, en geç 24 saat içinde size ulaşalım.
+          {f.desc}
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="font-body text-sm text-gray-light block mb-2">Adınız *</label>
+              <label className="font-body text-sm text-gray-light block mb-2">{f.name}</label>
               <input
                 name="name"
                 required
                 className="w-full bg-gray-dark border border-gray-mid text-white font-body px-4 py-3 focus:outline-none focus:border-lime transition-colors"
-                placeholder="Ahmet Yılmaz"
+                placeholder={f.namePlaceholder}
               />
             </div>
             <div>
-              <label className="font-body text-sm text-gray-light block mb-2">Telefon *</label>
+              <label className="font-body text-sm text-gray-light block mb-2">{f.phone}</label>
               <input
                 name="phone"
                 required
                 className="w-full bg-gray-dark border border-gray-mid text-white font-body px-4 py-3 focus:outline-none focus:border-lime transition-colors"
-                placeholder="0532 000 00 00"
+                placeholder={f.phonePlaceholder}
               />
             </div>
           </div>
 
           <div>
-            <label className="font-body text-sm text-gray-light block mb-2">İşletme Adı</label>
+            <label className="font-body text-sm text-gray-light block mb-2">{f.business}</label>
             <input
               name="business"
               className="w-full bg-gray-dark border border-gray-mid text-white font-body px-4 py-3 focus:outline-none focus:border-lime transition-colors"
-              placeholder="İşletmenizin adı"
+              placeholder={f.businessPlaceholder}
             />
           </div>
 
           <div>
-            <label className="font-body text-sm text-gray-light block mb-2">İlgilendiğiniz Hizmet</label>
+            <label className="font-body text-sm text-gray-light block mb-2">{f.service}</label>
             <select
               name="service"
               className="w-full bg-gray-dark border border-gray-mid text-white font-body px-4 py-3 focus:outline-none focus:border-lime transition-colors"
             >
-              <option value="">Seçiniz</option>
-              <option value="seed">Seed — Marka Kimliği</option>
-              <option value="grow">Grow — Web Sitesi</option>
-              <option value="scale">Scale — Sosyal Medya + SEO</option>
-              <option value="full">Full — Tam Dijital Dönüşüm</option>
-              <option value="other">Diğer</option>
+              <option value="">{f.serviceSelect}</option>
+              {SERVICE_KEYS.map((key) => (
+                <option key={key} value={key}>{f.serviceOptions[key]}</option>
+              ))}
             </select>
           </div>
 
           <div>
-            <label className="font-body text-sm text-gray-light block mb-2">Notunuz</label>
+            <label className="font-body text-sm text-gray-light block mb-2">{f.note}</label>
             <textarea
               name="message"
               rows={4}
               className="w-full bg-gray-dark border border-gray-mid text-white font-body px-4 py-3 focus:outline-none focus:border-lime transition-colors resize-none"
-              placeholder="Projenizden kısaca bahsedin..."
+              placeholder={f.notePlaceholder}
             />
           </div>
 
           <Button type="submit" size="lg" disabled={status === "sending"} className="mt-2">
-            {status === "sending" ? "Gönderiliyor..." : "Gönder"}
+            {status === "sending" ? f.sending : f.submit}
           </Button>
 
           {status === "success" && (
             <p className="font-body text-lime text-sm text-center">
-              Mesajınız alındı! En geç 24 saat içinde dönüş yapacağız.
+              {f.success}
             </p>
           )}
           {status === "error" && (
             <p className="font-body text-red-400 text-sm text-center">
-              Bir hata oluştu. Lütfen {SITE.email} adresine mail gönderin.
+              {f.error}{" "}
+              <a href={`mailto:${SITE.email}`} className="underline">{SITE.email}</a>
             </p>
           )}
         </form>
