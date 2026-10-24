@@ -24,6 +24,67 @@ const PROJECTS = [
     logo: "/portfolyo/yavuz-grup.svg",
   },
   {
+    id: "yavuzek-insaat",
+    title: "YavuzEk İnşaat",
+    category: {
+      tr: "Marka Kimliği, Mikrosite & Sosyal Medya",
+      en: "Brand Identity, Microsite & Social Media",
+    },
+    description: {
+      tr: "Kocaeli'de konut ve ticari yapı geliştiren YavuzEk İnşaat için logo, marka kılavuzu, kartvizit ve antetli kâğıttan oluşan kimlik seti; proje detay sayfalarıyla mikrosite ve @yavuzekinsaat hesabının içerik yönetimi.",
+      en: "An identity set — logo, brand guidelines, business card and letterhead — for YavuzEk İnşaat, a Kocaeli developer of residential and commercial buildings, plus a microsite with project detail pages and content for @yavuzekinsaat.",
+    },
+    tags: ["Marka Kimliği", "Mikrosite", "Sosyal Medya"],
+    url: "https://www.yavuzgrup.tr/yavuzek-insaat",
+    logo: "/portfolyo/yavuzek-insaat.svg",
+  },
+  {
+    id: "suum-bodrum",
+    title: "Suum Bodrum",
+    category: {
+      tr: "Sosyal Medya & Video Prodüksiyon",
+      en: "Social Media & Video Production",
+    },
+    description: {
+      tr: "Bodrum'daki butik otel için hesap analiziyle başlayan iş: çekim ve teknik çekim planı, içerik takvimi, reels kurgusu ve renk ayarları. Logo da vektöre taşındı.",
+      en: "Work for a boutique hotel in Bodrum that started with an account audit: shoot and technical shot plans, a content calendar, reels editing and colour grading. The logo was rebuilt as a vector as well.",
+    },
+    tags: ["Instagram", "Reels", "Çekim Planı"],
+    url: "https://www.instagram.com/suumbodrum/",
+    linkType: "account",
+    logo: "/portfolyo/suum-bodrum.svg",
+  },
+  {
+    id: "yavuz-dekorasyon-insaat",
+    title: "Yavuz Dekorasyon & İnşaat",
+    category: {
+      tr: "Logo, Mikrosite & Sosyal Medya",
+      en: "Logo, Microsite & Social Media",
+    },
+    description: {
+      tr: "Eğitim, sağlık ve kamu yapılarında taahhüt işleri yürüten şirket için simge ve yatay logo, favicon ve sosyal medya seti; her taahhüt işinin kendi sayfasını aldığı mikrosite ve içerik planı.",
+      en: "Symbol and horizontal logo, favicon and social media kit for a contractor working on education, healthcare and public buildings; a microsite where each project gets its own page, and a content plan.",
+    },
+    tags: ["Logo", "Mikrosite", "SEO"],
+    url: "https://www.yavuzgrup.tr/yavuz-dekorasyon-insaat",
+    logo: "/portfolyo/yavuz-dekorasyon-insaat.svg",
+  },
+  {
+    id: "rek-sigorta",
+    title: "Rek Sigorta",
+    category: {
+      tr: "Mikrosite & Logo",
+      en: "Microsite & Logo",
+    },
+    description: {
+      tr: "Sigorta aracılık şirketi için teklif formu, hizmet ve çözüm ortakları sayfalarıyla mikrosite. Elde vektörü olmayan logo yeniden çizildi, dar alanlar için yatay versiyonu üretildi; e-posta imzası da hazırlandı.",
+      en: "A microsite with a quote form, services and partner pages for an insurance brokerage. The logo, which had no vector source, was redrawn and given a horizontal lockup for tight spaces; an email signature too.",
+    },
+    tags: ["Mikrosite", "Teklif Formu", "Logo"],
+    url: "https://www.yavuzgrup.tr/rek-sigorta",
+    logo: "/portfolyo/rek-sigorta.svg",
+  },
+  {
     id: "easy-run-club",
     title: "Easy Run Club",
     category: {
@@ -96,14 +157,15 @@ export default function PortfolyoIcerik() {
               </div>
               {project.url && (
                 <a href={project.url} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.8rem", color: "#C8F135", textDecoration: "none" }}>
-                  {po.viewSite}
+                  {project.linkType === "account" ? po.viewAccount : po.viewSite}
                 </a>
               )}
             </div>
           ))}
 
-          {/* Placeholder */}
-          <div style={{ background: "#111", padding: "2rem", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "20rem", border: "1px dashed rgba(255,255,255,0.1)" }}>
+          {/* Placeholder — satirin tamamina yayiliyor; tek hucre kalinca
+              yaninda bos grid zemini gorunuyordu. */}
+          <div style={{ gridColumn: "1 / -1", background: "#111", padding: "2rem", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "16rem", border: "1px dashed rgba(255,255,255,0.1)" }}>
             <p style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 800, fontSize: "1.1rem", color: "rgba(255,255,255,0.3)", marginBottom: "0.5rem" }}>{po.placeholder}</p>
             <p style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.2)", textAlign: "center", marginBottom: "1.5rem", maxWidth: "200px", textWrap: "pretty" }}>{po.placeholderDesc}</p>
             <Link
